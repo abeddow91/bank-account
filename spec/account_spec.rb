@@ -25,4 +25,9 @@ describe Account do
       expect{account1.withdraw(20)}.to raise_error("Sorry, you have insufficient funds for this withdrawal")
     end
 
+    it "stores the date with deposit amount" do
+      account.deposit(300)
+      expect(account.deposit_history).to include({date: "29/11/2016", deposit: 300})
+    end
+
 end
