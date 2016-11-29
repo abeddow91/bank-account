@@ -27,7 +27,13 @@ describe Account do
 
     it "stores the date with deposit amount" do
       account.deposit(300)
-      expect(account.deposit_history).to include({date: "29/11/2016", deposit: 300})
+      expect(account.account_history).to include({date: "29/11/2016", deposit: 300, withdrawal: 0, balance: 300})
+    end
+
+    it "stores the date with withdraw amount" do
+      account.deposit(300)
+      account.withdraw(300)
+      expect(account.account_history).to include({date: "29/11/2016", deposit: 0, withdrawal: 300, balance: 0})
     end
 
 end
